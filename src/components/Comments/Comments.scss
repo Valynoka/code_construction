@@ -1,0 +1,28 @@
+.comments{
+  padding: 0 40px;
+  max-width: 1144px;
+  margin: 0 auto;
+
+  &__wrapper {
+    display: flex;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 1vw;
+  }
+  &__column{
+
+  }
+  &__title{
+    text-align: center;
+    padding: 10px;
+    border-bottom: 3px solid #c1e9f5;
+  }
+  &__item{
+    display: flex;
+    border-bottom: 3px solid #c1e9f5;
+    justify-content: flex-start;
+    align-items: center;
+    height: 10vh;
+  }
+
+}

@@ -1,0 +1,18 @@
+.navigation{
+  width: 100%;
+  background: black;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &__item{
+    color: white;
+    font-size: 24px;
+    padding: 24px;
+    transition: 1s;
+  }
+  &__item:hover{
+    background-color: gray;
+    border-radius: 50px;
+  }
+}
