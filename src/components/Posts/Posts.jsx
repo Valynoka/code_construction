@@ -1,8 +1,9 @@
 import React from 'react';
 import dataStore from "../../store/dataStore";
 import './Posts.scss'
-import Search from "../Search/Search";
 import {observer} from "mobx-react-lite";
+import SearchPostsTitle from "../Search/SearchPostsTitle";
+import SearchPostsBody from "../Search/SearchPostsBody";
 
 const Posts = observer(() => {
 	const { shortListPosts, setShowMorePost } = dataStore
@@ -12,8 +13,8 @@ const Posts = observer(() => {
 			<table className={'posts__table'}>
 				<tr className={'posts__cell'}>
 					<th className={'posts__id'}>Id</th>
-					<th className={'posts__title'}><Search/>Заголовок</th>
-					<th className={'posts__body'}>Отзыв</th>
+					<th className={'posts__title'}><SearchPostsTitle/>Заголовок</th>
+					<th className={'posts__body'}><SearchPostsBody/>Отзыв</th>
 				</tr>
 				{shortListPosts.map((post) => (
 					<tr className={'posts__cell'} key={post.id}>

@@ -8,13 +8,15 @@ class DataStore {
 	shortListComments = [];
 	posts = [];
 	shortListPosts = [];
-	searchValue = '';
+	searchValuePostsTitle = '';
+	searchValuePostsBody ='';
 
 	constructor() {
 		makeAutoObservable(this, {
 			setShowMore: action.bound,
 			setShowMorePost: action.bound,
-			setFilterSearch: action.bound,
+			setFilterPostsTitleSearch: action.bound,
+			setFilterPostsBodySearch: action.bound,
 		})
 		service
 			.getComments()
@@ -43,10 +45,19 @@ class DataStore {
 	}
 
 	//search
-	setFilterSearch(search) {
-		this.searchValue = search;
-		if(search){
-			this.shortListPosts = this.shortListPosts.filter((post) => post.title.toLowerCase().includes(search.toLowerCase()));
+	setFilterPostsTitleSearch(title) {
+		this.searchValuePostsTitle = title;
+		if(title){
+			this.shortListPosts = this.shortListPosts.filter((post) => post.title.toLowerCase().includes(title.toLowerCase()));
+		} else {
+			this.shortListPosts = this.posts.slice(0, 10)
+		}
+	}
+
+	setFilterPostsBodySearch(body) {
+		this.searchValuePostsBody = body;
+		if (body) {
+			this.shortListPosts = this.shortListPosts.filter((postsComm) => postsComm.body.toLowerCase().includes(body.toLowerCase()));
 		} else {
 			this.shortListPosts = this.posts.slice(0, 10)
 		}
